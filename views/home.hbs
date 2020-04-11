@@ -1,0 +1,10 @@
+<create-component v-on:submit-create="create"></create-component>
+<div id="chatroom-list">
+    <ul class="pl-0">
+        <li class="home-chatroom mb-2" v-for="chatroom in chatrooms" :key="chatroom.roomid">
+            <a @click="enterRoom(chatroom.roomid)">
+                \{{chatroom.roomName}}
+            </a>
+        </li>
+    </ul>
+</div>

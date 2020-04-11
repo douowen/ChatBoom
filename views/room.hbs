@@ -1,0 +1,10 @@
+<h1> Welcome to {{roomName}} </h1>
+<div class="chatroom-window">
+    <div class="chatroom-overlay" v-if="!nickname.length">
+        <nickname-component v-on:set-nickname="setNickname"></nickname-component>
+    </div>
+    <div class="chatroom-container">
+        <messages-component></messages-component>
+        <send-message-component :nickname="nickname"></send-message-component>
+    </div>
+</div>
