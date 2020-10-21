@@ -30,15 +30,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// If you choose not to use handlebars as template engine, you can safely delete the following part and use your own way to render content
-// view engine setup
+// View engine setup
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-// set up stylesheets route
-
-// TODO: Add server side code
 
 // Create controller handlers to handle requests at each endpoint
 app.get('/', homeHandler.getHome);
@@ -52,9 +47,7 @@ app.post('/:roomid/message', roomHandler.postMsg);
 // app.post('/:roomid/messages', roomHandler.getMessages);
 
 app.post('/create', roomHandler.create);
-// app.post('/:roomid/setNickname', roomHandler.setNickName);
 app.get('*', (req, res) => res.sendStatus(404));
 
-// NOTE: This is the sample server.js code we provided, feel free to change the structures
 
 app.listen(port, () => console.log(`Server listening on http://localhost:${port}`));
